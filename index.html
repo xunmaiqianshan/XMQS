@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻脉千山</title>
+    <style>
+       
+    </style>
+    <link rel="stylesheet" href="start.css">
+    <link rel="stylesheet" href="slide.css">
+</head>
+<body> 
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <div class="logo">寻脉千山，薪传万代</div>
+                <div class="tagline">演绎津门非遗风采 礼赞百年匠心传承</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">文脉地图</a></li>
+                    <li><a href="#">宣传册</a></li>
+                    <li><a href="video.html">非遗系列短视频</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">更多</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>近期要闻</h1>
+        
+        <div class="carousel-container">
+            <div class="carousel">
+                <!-- 幻灯片1 -->
+                <div class="slide">
+                    <img src="image/image-slide/图1.png" alt="山脉风景" class="slide-img">
+                    <div class="slide-content">
+                        <h2 class="slide-title">上合组织天津峰会</h2>
+                        <p class="slide-description">探访媒体中心非遗体验展区</p>
+                        <a href="https://www.msn.cn/zh-cn/news/other/%E4%B8%8A%E5%90%88%E7%BB%84%E7%BB%87%E5%A4%A9%E6%B4%A5%E5%B3%B0%E4%BC%9A%E4%B8%A8%E6%8E%A2%E8%AE%BF%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%E9%9D%9E%E9%81%97%E4%BD%93%E9%AA%8C%E5%B1%95%E5%8C%BA/ar-AA1LA61w?ocid=BingNewsSerp" class="learn-more">了解更多</a>
+                    </div>
+                </div>
+                
+                <!-- 幻灯片2 -->
+                <div class="slide">
+                    <img src="image/image-slide/图2.jpg" alt="海滩风景" class="slide-img">
+                    <div class="slide-content">
+                        <p class="slide-description">（上合天津峰会）古韵新声：“上合时间”里的津门非遗</p>
+                        <a href="https://finance.sina.com.cn/jjxw/2025-08-30/doc-infnunpx6056656.shtml" class="learn-more">了解更多</a>
+                    </div>
+                </div>
+                
+                <!-- 幻灯片3 -->
+                <div class="slide">
+                    <img src="image/image-slide/图3.webp" alt="雪山" class="slide-img">
+                    <div class="slide-content">
+                        <h2 class="slide-title">上合组织天津峰会</h2>
+                        <p class="slide-description">天津非遗氛围浓，上合记者交流热</p>
+                        <a href="https://news.qq.com/rain/a/20250829A07RBI00" class="learn-more">了解更多</a>
+                    </div>
+                </div>
+                
+                <!-- 幻灯片4 -->
+                <div class="slide">
+                    <img src="image/image-slide/图4.jpg" alt="湖泊" class="slide-img">
+                    <div class="slide-content">
+                        <p class="slide-description">灯芯草点染、泥人DIY……天津非遗让世界读懂中国</p>
+                        <a href="https://www.msn.cn/zh-cn/news/other/%E7%81%AF%E8%8A%AF%E8%8D%89%E7%82%B9%E6%9F%93-%E6%B3%A5%E4%BA%BAdiy-%E5%A4%A9%E6%B4%A5%E9%9D%9E%E9%81%97%E8%AE%A9%E4%B8%96%E7%95%8C%E8%AF%BB%E6%87%82%E4%B8%AD%E5%9B%BD/ar-AA1LujEx?ocid=BingNewsSerp" class="learn-more">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 导航按钮 -->
+            <div class="carousel-btn prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="carousel-btn next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            
+            <!-- 导航指示器 -->
+            <div class="carousel-nav">
+                <div class="nav-item active"></div>
+                <div class="nav-item"></div>
+                <div class="nav-item"></div>
+                <div class="nav-item"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            
+            // 更新轮播图位置
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 25}%)`;
+                
+                // 更新导航指示器
+                navItems.forEach((item, index) => {
+                    if (index === currentIndex) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 下一张幻灯片
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateCarousel();
+            }
+            
+            // 上一张幻灯片
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateCarousel();
+            }
+            
+            // 点击导航指示器跳转到对应幻灯片
+            navItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // 添加按钮事件监听器
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // 自动轮播
+            let autoPlay = setInterval(nextSlide, 5000);
+            
+            // 鼠标悬停时暂停自动轮播
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoPlay);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(nextSlide, 5000);
+            });
+            
+            // 添加键盘导航支持
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            });
+        });
+    </script>
+    <!-- 非遗项目展示 -->
+    <section class="container">
+        <h2 class="section-title">非遗项目</h2>
+        <div class="projects">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="image/非遗项目/吐蜜.jpg" alt="蛤蟆吐蜜">
+                </div>
+                <div class="project-content">
+                    <h3>蛤蟆吐蜜</h3>
+                    <a href="C:\Users\Jarod Pablo\Desktop\寻脉千山\project introduction\tumi.html">简介</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="image/非遗项目/木版.jpg" alt="木版年画">
+                </div>
+                <div class="project-content">
+                    <h3>杨柳青木版年画</h3>
+                    <a href="C:\Users\Jarod Pablo\Desktop\寻脉千山\project introduction\muban.html">简介</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="image/非遗项目/点茶.jpg" alt="点茶与茶百戏">
+                </div>
+                <div class="project-content">
+                    <h3>点茶与茶百戏</h3>
+                    <a href="C:\Users\Jarod Pablo\Desktop\寻脉千山\project introduction\diancha.html">简介</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="image/非遗项目/点翠.jpg" alt="点翠">
+                </div>
+                <div class="project-content">
+                    <h3>白式点翠</h3>
+                    <a href="https://wenhua.youth.cn/whyw/202011/t20201118_12580771.htm">简介</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类区域 -->
+    <section class="categories">
+        <div class="container">
+            <h2  class="section-title">非遗系列短视频</h2>
+            <div class="category-grid">
+                
+                <div class="project-img project-card">
+                    <img src="image/image-video/1.jpg" alt="皮影戏">
+                </div>
+
+                <div class="project-img project-card">
+                    <img src="image/image-video/3.jpg" alt="皮影戏">
+                </div>
+
+                <div class="project-img project-card">
+                    <img src="image/image-video/5.jpg" alt="皮影戏">
+                </div>
+                
+                <div class="project-img project-card">
+                    <img src="image/image-video/7.jpg" alt="皮影戏">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>致力于XXX</p>
+                </div>
+                                
+                <div class="footer-section footer-contact">
+                    <h3>联系我们</h3>
+                    <p>地址：</p>
+                    <p>电话：</p>
+                    <p>邮箱：</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 寻脉千山非遗实践团队 版权所有</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
