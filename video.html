@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非遗系列短视频</title>
+    <link rel="stylesheet" href="video.css">
+    <style>
+    </style>
+</head>
+<body>
+    <header>
+        <h1>非遗系列短视频</h1>
+    </header>
+    
+    <div class="container">
+
+        <div class="video-grid">
+            <!-- 视频1 -->
+            <div class="video-card">
+                <div class="video-container">
+                    <video controls poster="image/image-video/1.jpg">
+                        <source src="video/第一期.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">第一期</h3>
+                    <p class="video-desc">蛤蟆吐蜜</p>
+                </div>
+            </div>
+            
+            <!-- 视频2 -->
+            <div class="video-card">
+                <div class="video-container">
+                    <video controls poster="image/image-video/2.jpg">
+                        <source src="video/第二期.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">第二期</h3>
+                    <p class="video-desc">白式点翠与修复技艺</p>
+                </div>
+            </div>
+            
+            <!-- 视频3 -->
+            <div class="video-card">
+                <div class="video-container">
+                    <video controls poster="image/image-video/3.jpg">
+                        <source src="video/第三期.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">第三期</h3>
+                    <p class="video-desc">杨柳青木版年画（工序篇）</p>
+                </div>
+            </div>
+            
+            <!-- 视频4 -->
+            <div class="video-card">
+                <div class="video-container">
+                    <video controls poster="image/image-video/4.jpg">
+                        <source src="video/第四期.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">第四期</h3>
+                    <p class="video-desc">杨柳青木版年画（木版篇）</p>
+                </div>
+            </div>
+            
+            <!-- 视频5 -->
+            <div class="video-card">
+                <div class="video-container">
+                    <video controls poster="image/image-video/5.jpg">
+                        <source src="video/第五期.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">第五期</h3>
+                    <p class="video-desc">杨柳青木版年画（年画篇）</p>
+                </div>
+            </div>
+            
+            <!-- 视频6 -->
+            <div class="video-card">
+                <div class="video-container">
+                    <video controls poster="image/image-video/6.jpg">
+                        <source src="video/第六期.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">第六期</h3>
+                    <p class="video-desc">宋代点茶</p>
+                </div>
+            </div>
+            
+            <!-- 视频7 -->
+            <div class="video-card">
+                <div class="video-container">
+                    <video controls poster="image/image-video/7.jpg">
+                        <source src="video/第七期.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">第七期</h3>
+                    <p class="video-desc">茶百戏</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>寻脉千山非遗实践团队 &copy; 寻脉千山，薪传万代</p>
+        </div>
+    </footer>
+
+    <script>
+        // 分类筛选功能
+
+        
+        // 视频卡片悬停时暂停其他视频
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                // 暂停其他视频
+                document.querySelectorAll('video').forEach(video => {
+                    if (!video.closest('.video-card').isSameNode(this)) {
+                        video.pause();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
